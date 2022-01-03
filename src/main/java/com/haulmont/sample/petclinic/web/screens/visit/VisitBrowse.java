@@ -267,6 +267,7 @@ public class VisitBrowse extends StandardLookup<Visit> {
 
     @Subscribe("calendar")
     protected void onCalendarCalendarEventMove(Calendar.CalendarEventMoveEvent<LocalDateTime> event) {
+        // TODO: [required] [M] replace "Entity" usage with "Object" in all places...
         updateVisit(event.getEntity(), event.getNewStart(), event.getNewEnd());
     }
 

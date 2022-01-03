@@ -23,6 +23,7 @@ import io.jmix.ui.screen.OpenMode;
 import io.jmix.ui.screen.Subscribe;
 import io.jmix.ui.screen.UiController;
 import io.jmix.ui.screen.UiDescriptor;
+import io.jmix.ui.theme.ThemeVariantsManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class PetclinicMainScreen extends MainScreen {
     @Inject
     protected ScreenBuilders screenBuilders;
     @Inject
+    // TODO: [required] [S] replace with Jmix Helium APIs (slight naming differences)
     protected HeliumThemeVariantsManager heliumThemeVariantsManager;
     @Inject
     protected Button switchThemeModeBtn;

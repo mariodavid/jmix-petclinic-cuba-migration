@@ -40,6 +40,7 @@ public class PetclinicLoginScreen extends LoginScreen {
 
     @Subscribe("submit")
     public void onSubmit(ActionPerformedEvent event) {
+        //TODO: [required] [M] figure out the differences in this screen, LoginScreen::now is now private? Perhaps just regenerate a new Login Screen
         login();
     }
 
@@ -49,6 +50,7 @@ public class PetclinicLoginScreen extends LoginScreen {
     }
 
     protected void initBottomPanel() {
+        // TODO: [required] [M]  figure out the differences in this screen, where are the configs gone? Perhaps just regenerate a new Login Screen
         if (!globalConfig.getLocaleSelectVisible()) {
             poweredByLink.setAlignment(Alignment.MIDDLE_CENTER);
 
@@ -58,6 +60,7 @@ public class PetclinicLoginScreen extends LoginScreen {
         }
     }
 
+    // TODO: [required] [M]  figure out the differences in this screen, what has changed here? Perhaps just regenerate a new Login Screen
     @Override
     protected void initLogoImage() {
         logoImage.setSource(RelativePathResource.class)

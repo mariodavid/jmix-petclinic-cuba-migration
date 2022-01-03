@@ -56,6 +56,7 @@ public class MyVisits extends MasterDetailScreen<Visit> {
 
     @Subscribe
     protected void onInit(InitEvent event) {
+        // TODO: [required] [S] fix naming differences (why are they any at all, we are using the cuba compatibility module!?)
         visitsDl.setParameter("currentUser", userSession.getCurrentOrSubstitutedUser());
 
         tableEdit.withHandler(actionPerformedEvent -> {

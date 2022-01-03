@@ -1,5 +1,6 @@
 package com.haulmont.sample.petclinic.entity;
 
+// TODO: [required] [XS] why on earth not clean up non-used imports?
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;

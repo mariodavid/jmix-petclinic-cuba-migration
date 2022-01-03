@@ -1,5 +1,6 @@
 package com.haulmont.sample.petclinic.web.pet.pet;
 
+// TODO: [required] [S] replace with "io.jmix.ui.action.Action", but why?
 import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.sample.petclinic.entity.owner.Owner;
@@ -20,6 +21,8 @@ import javax.inject.Inject;
 @UiController("petclinic_Pet.browse")
 @UiDescriptor("pet-browse.xml")
 @LookupComponent("petsTable")
+
+// TODO: [optional] [S] replace with dataLoadCoordinator facet
 @LoadDataBeforeShow
 @Route("pets")
 public class PetBrowse extends StandardLookup<Pet> {
