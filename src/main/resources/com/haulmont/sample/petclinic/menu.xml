@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://com.haulmont.sample.petclinic/menu.application" insertBefore="administration">
+        <item screen="sec$User.browse" caption="msg://com.haulmont.sample.petclinic.screen.user/UserBrowse.caption"/>
+        <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+    </menu>
+    <menu id="application-petclinic" insertBefore="administration">
+        <item screen="petclinic_Visit.browse"/>
+        <item screen="petclinic_Pet.browse"/>
+        <item screen="petclinic_Owner.browse"/>
+    </menu>
+    <menu id="application-masterdata" insertBefore="administration">
+        <item screen="petclinic_Veterinarian.browse"/>
+        <item screen="petclinic_PetType.browse"/>
+        <item screen="petclinic_Specialty.browse"/>
+    </menu>
+
+</menu-config>

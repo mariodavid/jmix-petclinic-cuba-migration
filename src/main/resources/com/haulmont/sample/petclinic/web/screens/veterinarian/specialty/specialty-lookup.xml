@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window" xmlns:dynattr="http://jmix.io/schema/dynattr/ui"
+        xmlns:cuba="http://schemas.haulmont.com/cuba/screen/compatibility"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://browseCaption"
+        focusComponent="specialtiesTable"
+>
+    <data readOnly="true">
+        <collection id="specialtiesDc"
+                    class="com.haulmont.sample.petclinic.entity.veterinarian.Specialty"
+                    fetchPlan="_local">
+            <loader id="specialtiesDl">
+                <query>
+                    <![CDATA[select e from petclinic_Specialty e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="specialtiesTable"
+            spacing="true">
+        <table id="specialtiesTable"
+               width="100%"
+               dataContainer="specialtiesDc">
+            <columns>
+                <column id="name"/>
+            </columns>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+    <facets>
+        <dynattr:dynamicAttributes/>
+    </facets>
+</window>

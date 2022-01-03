@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window" xmlns:dynattr="http://jmix.io/schema/dynattr/ui"
+        xmlns:cuba="http://schemas.haulmont.com/cuba/screen/compatibility"
+        caption="msg://editorCaption"
+        focusComponent="fieldGroup"
+>
+    <data>
+        <instance id="visitDc"
+                  class="com.haulmont.sample.petclinic.entity.visit.Visit"
+                  fetchPlan="visit-with-pet">
+            <loader/>
+        </instance>
+        <collection id="petsDc" class="com.haulmont.sample.petclinic.entity.pet.Pet" fetchPlan="_base">
+            <loader>
+                <query>
+                    select e from petclinic_Pet e
+                </query>
+            </loader>
+        </collection>
+        <collection id="assignedNurseesDc" class="com.haulmont.cuba.security.entity.User" fetchPlan="_minimal">
+            <loader>
+                <query>select u from sec$User u join u.userRoles ur where ur.roleName = 'Nurse'</query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="fieldGroup" dataContainer="visitDc">
+            <column width="250px">
+                <dateField property="visitStart"/>
+                <lookupPickerField property="pet" optionsContainer="petsDc"/>
+                <entityComboBox id="typeField" property="type"/>
+                <textArea rows="5" property="description" colspan="2" width="100%"/>
+            </column>
+            <column width="250px">
+                <dateField property="visitEnd"/>
+                <entityComboBox id="assignedNurseField" property="assignedNurse" optionsContainer="assignedNurseesDc"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+    <facets>
+        <dynattr:dynamicAttributes/>
+    </facets>
+</window>

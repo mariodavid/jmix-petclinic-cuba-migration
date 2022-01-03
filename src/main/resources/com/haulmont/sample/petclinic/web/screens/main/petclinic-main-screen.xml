@@ -1,0 +1,28 @@
+<window xmlns="http://jmix.io/schema/ui/window" xmlns:dynattr="http://jmix.io/schema/dynattr/ui"
+        xmlns:cuba="http://schemas.haulmont.com/cuba/screen/compatibility"
+        xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="/com/haulmont/cuba/web/app/main/main-screen.xml">
+    <actions>
+        <action id="switchThemeMode"/>
+    </actions>
+    <facets>
+        <timer id="refreshMyVisits" delay="3000" autostart="true" repeating="true"/>
+        <dynattr:dynamicAttributes/>
+    </facets>
+    <layout>
+        <cssLayout>
+            <workArea>
+                <initialLayout>
+                    <image align="BOTTOM_CENTER">
+                        <theme path="branding/petclinic_logo_with_slogan.svg"/>
+                    </image>
+                    <button
+                            id="switchThemeModeBtn"
+                            stylename="icon-only secondary"
+                            align="BOTTOM_RIGHT"
+                            action="switchThemeMode"/>
+                </initialLayout>
+            </workArea>
+        </cssLayout>
+    </layout>
+</window>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window" xmlns:dynattr="http://jmix.io/schema/dynattr/ui"
+        xmlns:cuba="http://schemas.haulmont.com/cuba/screen/compatibility"
+        caption="msg://browseCaption"
+        focusComponent="ownersTable"
+>
+    <data readOnly="true">
+        <collection id="ownersDc"
+                    class="com.haulmont.sample.petclinic.entity.owner.Owner"
+                    fetchPlan="owner-with-pets">
+            <loader id="ownersDl">
+                <query>
+                    <![CDATA[select e from petclinic_Owner e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ownersTable"
+            spacing="true">
+        <cuba:cubaFilter id="filter"
+                         applyTo="ownersTable"
+                         dataLoader="ownersDl">
+            <properties include=".*"/>
+        </cuba:cubaFilter>
+        <groupTable id="ownersTable"
+                    multiselect="true"
+                    dataContainer="ownersDc"
+                    width="100%">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="view" type="view"/>
+                <action id="excel" type="excelExport"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="firstName"/>
+                <column id="lastName"/>
+                <column id="address"/>
+                <column id="city"/>
+                <column id="telephone"/>
+                <column id="email"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ownersTable.create"/>
+                <button id="viewBtn" action="ownersTable.view"/>
+                <button id="excelBtn" action="ownersTable.excel" stylename="friendly"/>
+                <button id="removeBtn" action="ownersTable.remove" stylename="danger"/>
+                <relatedEntities for="ownersTable" openType="DIALOG"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+    <facets>
+        <dynattr:dynamicAttributes/>
+    </facets>
+</window>

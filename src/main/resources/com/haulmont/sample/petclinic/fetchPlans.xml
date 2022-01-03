@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fetchPlans xmlns="http://jmix.io/schema/core/fetch-plans">
+    <fetchPlan class="com.haulmont.sample.petclinic.entity.veterinarian.Veterinarian"
+          extends="_local"
+          name="veterinarian-with-specialties">
+        <property name="specialties"
+                  fetchPlan="_instance_name"/>
+    </fetchPlan>
+    <fetchPlan class="com.haulmont.sample.petclinic.entity.visit.Visit"
+          extends="_local"
+          name="visit-with-pet">
+        <property name="pet"
+                  fetchPlan="_instance_name"/>
+        <property name="assignedNurse" fetchPlan="_instance_name"/>
+    </fetchPlan>
+    <fetchPlan class="com.haulmont.sample.petclinic.entity.owner.Owner"
+          extends="_local"
+          name="owner-with-pets">
+        <property name="pets"
+                  fetchPlan="_instance_name"/>
+    </fetchPlan>
+    <fetchPlan class="com.haulmont.sample.petclinic.entity.pet.Pet"
+          extends="_local"
+          name="pet-with-owner-and-type">
+        <property name="type"
+                  fetchPlan="_instance_name"/>
+        <property name="owner"
+                  fetchPlan="_local"/>
+    </fetchPlan>
+</fetchPlans>
